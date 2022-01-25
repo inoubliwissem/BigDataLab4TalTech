@@ -1,7 +1,7 @@
 # BigDataLab4TalTech
 # Hands-on on big data frameworks
 
-In this lab, we will  install and configure both apache hadoop and spark on virtual cluster of machines through the container technologie (Docker in our example). Then, we will try to play with the distributed file system provided by apache hadoop (HDFS) and the distributed processing  framework mapreduce implemented by hadoop. In the second lavel, apche spark will be used and tested with some examples. 
+In this lab, we will  install and configure both apache hadoop and spark on virtual cluster of machines through the container technologie (Docker in our example). Then, we will try to play with the distributed file system provided by apache hadoop (HDFS) and the distributed processing  framework mapreduce implemented by hadoop. In the second lavel, apache spark will be used and tested with some examples. 
 The following figure shows the architecture that will be deployed in this lab.
 ![alt text](docker.png "architecture")
 
@@ -19,7 +19,7 @@ $git clone https://github.com/inoubliwissem/DockerHadoopImage.git
 $cd DockerHadoopImage
 $docker build -t node-sh .
 ```  
- if you whant to verify the create of this image you can check the created  images using the next command line:
+ if you whant to verify the creattion of this image you can check all created images using the next command line:
  ```
 $docker images
 ```
@@ -27,7 +27,7 @@ $docker images
  ```
 $docker --driver bridge cluster
 ```
- 3. **Create containers from the created docker image (one for the master  and one as a slave machine)**  
+ 3. **Create containers from the created docker image (one for the master and one as a slave machine)**  
 
  ```
 $docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:80:8088 --hostname master --network cluster node-sh bash 
@@ -36,13 +36,13 @@ $docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:80:
  ```
 $docker run -it --name slave1 -p 8081:8081 --hostname slave1 --network cluster node-sh bash 
 ```
-In order to see the start services in each machine, we recommend opening a terminal for each image
+In order to see the started services in each machine, we recommend opening a terminal for each image
  4.  **Start the ssh service (in both machines) and install nano text editor**
  ```
  huser@master$sudo service start ssh
  huser@master$sudo apt-get install nano
 ```
- 5.  **Edit the configuration files in both containers (master and slave)** 
+ 5.  **Edit configuration files in both containers (master and slave)** 
 	
  **1. Hadoop**
 1.1 Edit the *core-site.xml* file and add the current machine as a master machine, the default value is lacalhost you shoud replace it by master in our case.
@@ -50,7 +50,7 @@ In order to see the start services in each machine, we recommend opening a termi
       hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
     ```  
     
-   1.2 Edit the *workers* file in order to add the slave machines (in our case we will take both of machines as slaves, in this *workers* file we will add two lines (*master, slave1*)
+   1.2 Edit the *workers* file in order to add the slave machines (in our case we will take both of machines as slaves, in the *workers* file we will add two lines (*master, slave1*)
    	       ```
       hduser@master$ nano /home/hduser/hadoop/etc/hadoop/workers
     ```  
@@ -129,7 +129,7 @@ At the slave machines we will see the next services:
 
 ## 1. Hadoop
 #### 1.1 HDFS:  
->In this section we will use and apply some hdfs command in order to manipulate and manage the distributed file system.
+>In this section we will use and apply some HDFS command in order to manipulate and manage the distributed file system.
 
  - Create a folder in HDFS
   ```
@@ -159,13 +159,13 @@ OR
  ```
  hduser@master$hdfs dfs -head /taltech/README.txt 
 ``` 
-> If you what to use or  see other HDFS commands, use this command (***hdfs dfs*** ) to show all available commands.
+> If you what to use or see other HDFS commands, use this command (***hdfs dfs*** ) to show all available commands.
 #### 1.2 YARN:  
  - Run or submit a mapreduce job
   ```
  hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar wordcount /taltech/REDME.txt /taltech/rst 
 ``` 
- - Get list of application on the cluster
+ - Get list of applications on the cluster
   ```
  hduser@master$yarn app -list 
 ``` 
