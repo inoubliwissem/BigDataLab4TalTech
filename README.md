@@ -201,6 +201,40 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
  ```
  scala> rdd1.count()
 ```
+**DataFrame**
+> In this sub-section we will use the second data structure proposed by Spark (spark SQL)
+> A DataFrame is a data structure that organizes the data as a matrix where the columns are the attributes and the lines are the instances.
+
+
+| Project | Nb-Of-Contributors |
+|---------|--------------------------|
+| Hadoop  | 425                |
+| Spark   | 1772               |
+| Storm   | 343                |
+| Kafka   | 849                |
+| Flink   | 1004               |
+
+ - Put the meta-data of the DataFrame as a list
+ ```
+ scala>val columns=Seq("project","Nb-Of-Contributors")
+``` 
+ - Put the data of the DataFrame as a list
+  ```
+ scala>val data=Seq(("Hadoop",425),("Spark",1772),("Storm",343),("Kafka",849),("Flink",1004))
+``` 
+ - Create a DataFrame 
+  ```
+ scala>val dataframe=spark.createDataFrame(data).toDF(columns:_*)
+``` 
+ - Print the schema of the created dataframe
+  ```
+ scala> dataframe.printSchema()
+``` 
+ - Print the content of the created dataframe
+ ```
+ scala> dataframe.show()
+``` 
+
 #### 2.2 Submit a job on a cluster Spark
  ```
 hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/spark/examples/jars/spark-examples_2.12-3.2.0.jar 100
