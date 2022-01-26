@@ -37,7 +37,8 @@ $docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:808
 $docker run -it --name slave1 -p 8081:8081 --hostname slave1 --network cluster node-sh bash 
 ```
 In order to see the started services in each machine, we recommend opening a terminal for each image
- 4.  **Start the ssh service (in both machines) and install nano text editor**
+
+4.  **Start the ssh service (in both machines) and install nano text editor**
  ```
  huser@master$sudo service start ssh
  huser@master$sudo apt-get install nano
@@ -127,6 +128,14 @@ At the slave machines we will see the next services:
  **worker**
  jps
 ``` 
+6. Web interfaces
+When all services (hadoop and spark) are started, we can check check their provided graphic web interface. 
+**Hadoop HDFS GUI**
+
+![alt text](hgui.png "hadoop gui")
+**Spark GUI**  
+
+![alt text](sgui.png "hadoop gui")
 # Usage and manipulation of the big data platforms
 
 ## 1. Hadoop
