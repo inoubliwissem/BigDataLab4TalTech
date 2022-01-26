@@ -44,16 +44,18 @@ In order to see the started services in each machine, we recommend opening a ter
 ```
  5.  **Edit configuration files in both containers (master and slave)** 
 	
- **1. Hadoop**
+ **1. Hadoop**  
+ 
 1.1 Edit the *core-site.xml* file and add the current machine as a master machine, the default value is lacalhost you shoud replace it by master in our case.
-     ```
-      hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
-    ```  
+
+```
+hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
+```  
     
    1.2 Edit the *workers* file in order to add the slave machines (in our case we will take both of machines as slaves, in the *workers* file we will add two lines (*master, slave1*)
-   	       ```
-      hduser@master$ nano /home/hduser/hadoop/etc/hadoop/workers
-    ```  
+```
+  hduser@master$ nano /home/hduser/hadoop/etc/hadoop/workers
+```  
  1.3 Copy the hadoop folder from the master to all slaves.  	
  ```
  hduser@master$scp -r haddop hduser@slave1:/home/hduser/
