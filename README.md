@@ -11,7 +11,7 @@ The following figure shows the architecture that will be deployed in this lab.
  - Basic knowledge on container technologies and docker 
  - Git installed (to get the docker image otherwise you can download the zip file directly)
 
-# 1. Configuration
+# I. Configuration
  
  1. **Clone the github repository  and build the image using the docker file inside the repository.**
 ```
@@ -136,7 +136,7 @@ When all services (hadoop and spark) are started, we can check check their provi
 **Spark GUI**  
 
 ![alt text](sgui.png "hadoop gui")
-# Usage and manipulation of the big data platforms
+# II. Usage and manipulation of the big data platforms  
 
 ## 1. Hadoop
 #### 1.1 HDFS:  
@@ -210,7 +210,7 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
  ```
  scala> rdd1.count()
 ```
-**DataFrame**
+  **DataFrame**
 > In this sub-section we will use the second data structure proposed by Spark (spark SQL)
 > A DataFrame is a data structure that organizes the data as a matrix where the columns are the attributes and the lines are the instances.
 
