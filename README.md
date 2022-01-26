@@ -30,7 +30,7 @@ $docker --driver bridge cluster
  3. **Create containers from the created docker image (one for the master and one as a slave machine)**  
 
  ```
-$docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:80:8088 --hostname master --network cluster node-sh bash 
+$docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:8088 --hostname master --network cluster node-sh bash 
 ```
 
  ```
@@ -203,5 +203,5 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
 ```
 #### 2.2 Submit a job on a cluster Spark
  ```
-hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/examples/jars/spark-examples_2.12-3.2.0.jar 100
+hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/spark/examples/jars/spark-examples_2.12-3.2.0.jar 100
 ```
