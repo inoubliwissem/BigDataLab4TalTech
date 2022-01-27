@@ -243,7 +243,58 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
  ```
  scala> dataframe.show()
 ``` 
+ **Graphs with Spark GraphX ** 
+> GraphX is a useful library provided by spark for the graph data structure. In this sub-section we will use this library  to manipulate graphs.  The next figure shows a graph and using GraphX we will create it.
 
+
+
+```
+mermaid
+graph LR
+A((User 1:))-.Friend.-B((user 2))
+A((User 1:))-.Friend.-C((user 3))
+A((User 1:))-.Friend.-D((user 4))
+B -.Colleague.- C
+C -.Colleague.-F((user 5))
+C -.Friend.- D
+F -.Colleague.- D
+```
+
+
+ -  Import classes
+ ```
+ scala>import org.apache.spark.graphX.Edge
+ scala>mport org.apache.spark.graphX.Graph
+ scala>mport org.apache.spark.graphX.lib._
+```   
+-  Creating the property graph
+ ```
+ scala> val verticesArray = Array(
+ (1L, ("user1")),
+ (2L, ("user2")),
+ (3L, ("user3")),
+ (4L, ("user4")),
+ (5L, ("user5")))
+```  
+ ```
+ scala> val edgeArray = Array(
+ Edge(1L, 2L,"Friend"),
+ Edge(1L, 3L, "Friend"), 
+ Edge(1L, 3L, "Friend"),
+ Edge(2L, 3L, "Colleague"),
+ Edge(3L, 4L, "Colleague"),
+ Edge(3L, 5L, "Colleague"),
+ Edge(4L, 5L, "Colleague"))
+```  
+-  Create RDDs from the vertices and edges arrays by using the *sc.parallelize()* function
+ ```
+scala> val verticesRDD = sc.parallelize(verticesArray )
+scala> val edgesRDD = sc.parallelize(edgeArray )
+```  
+-  Graph building
+ ```
+val graph = Graph(verticesRDD , edgesRDD )
+```  
 #### 2.2 Submit a job on a cluster Spark
  ```
 hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/spark/examples/jars/spark-examples_2.12-3.2.0.jar 100
