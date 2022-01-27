@@ -15,8 +15,8 @@ The following figure shows the architecture that will be deployed in this lab.
  
  1. **Clone the github repository  and build the image using the docker file inside the repository.**
 ```
-$git clone https://github.com/inoubliwissem/DockerHadoopImage.git
-$cd DockerHadoopImage
+$git clone https://github.com/inoubliwissem/BigDataLab4TalTech.git
+$cd BigDataLab4TalTech
 $docker build -t node-sh .
 ```  
  if you whant to verify the creattion of this image you can check all created images using the next command line:
