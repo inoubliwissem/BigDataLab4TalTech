@@ -259,7 +259,7 @@ C -.Colleague.-F((user 5))
 C -.Friend.- D
 F -.Colleague.- D
 ```
-
+![alt text](graph.png "graph")
 
  -  Import classes
  ```
