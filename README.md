@@ -7,7 +7,7 @@ The following figure shows the architecture that will be deployed in this lab.
 
 ### Requirements
 
- - Docker engine installed
+ - Docker engine installed (https://docs.docker.com/engine/install/ubuntu/)
  - Basic knowledge on container technologies and docker 
  - Git installed (to get the docker image otherwise you can download the zip file directly)
 
@@ -40,7 +40,7 @@ In order to see the started services in each machine, we recommend opening a ter
 
 4.  **Start the ssh service (in both machines) and install nano text editor**
  ```
- huser@master$sudo service start ssh
+ huser@master$sudo service  ssh start
  huser@master$sudo apt-get install nano
 ```
  5.  **Edit configuration files in both containers (master and slave)** 
