@@ -263,9 +263,9 @@ F -.Colleague.- D
 
  -  Import classes
  ```
- scala>import org.apache.spark.graphX.Edge
- scala>mport org.apache.spark.graphX.Graph
- scala>mport org.apache.spark.graphX.lib._
+ scala>import org.apache.spark.graphx.Edge
+ scala>mport org.apache.spark.graphx.Graph
+ scala>mport org.apache.spark.graphx.lib._
 ```   
 -  Creating the property graph
  ```
