@@ -19,7 +19,7 @@ $git clone https://github.com/inoubliwissem/BigDataLab4TalTech.git
 $cd BigDataLab4TalTech
 $docker build -t node-sh .
 ```  
- if you whant to verify the creattion of this image you can check all created images using the next command line:
+ if you want to verify the creattion of this image you can check all created images using the next command line:
  ```
 $docker images
 ```
