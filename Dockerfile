@@ -10,8 +10,8 @@ WORKDIR /home/hduser
 # switech to the created user
 USER hduser
 # download hadoop and extract it
-RUN wget -q https://downloads.apache.org/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz && tar zxvf hadoop-3.3.0.tar.gz && rm hadoop-3.3.0.tar.gz
-RUN mv hadoop-3.3.0 hadoop
+RUN wget -q https://dlcdn.apache.org/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz && tar zxvf hadoop-3.3.2.tar.gz && rm hadoop-3.3.2.tar.gz
+RUN mv hadoop-3.3.2 hadoop
 # share the public key
 RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 0600 ~/.ssh/authorized_keys	
 # set environment variable
