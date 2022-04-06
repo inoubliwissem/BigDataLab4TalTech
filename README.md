@@ -91,13 +91,13 @@ At the slave machines we will see the next services:
 2.1 Rename and edit the *spark-default.conf.templates* file
 ```
 hduser@master$ cp /home/hduser/spark/conf/spark-default.conf.templates /home/hduser/spark/conf/spark-default.conf
-hduser@master$ cat "spark.master   spark://master:7077" >> /home/hduser/spark/conf/spark-default.conf
+hduser@master$ echo "spark.master   spark://master:7077" >> /home/hduser/spark/conf/spark-default.conf
 ```
 2.2 Rename and edit the *workers.templates* file
 ```
 hduser@master$ cp /home/hduser/spark/conf/workers.templates /home/hduser/spark/conf/workers
-hduser@master$ cat "master" >> /home/hduser/spark/conf/workers
-hduser@master$ cat "slave1" >> /home/hduser/spark/conf/workers
+hduser@master$ echo "master" >> /home/hduser/spark/conf/workers
+hduser@master$ echo  "slave1" >> /home/hduser/spark/conf/workers
 ```
 2.3 Copy the spark folder from the master to all slaves.
  ```
