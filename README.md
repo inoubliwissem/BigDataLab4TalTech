@@ -88,14 +88,14 @@ At the slave machines we will see the next services:
  jps
 ``` 
 **2. Spark**
-2.1 Rename and edit the *spark-default.conf.templates* file
+2.1 Rename and edit the *spark-default.conf.template* file
 ```
-hduser@master$ cp /home/hduser/spark/conf/spark-default.conf.templates /home/hduser/spark/conf/spark-default.conf
+hduser@master$ cp /home/hduser/spark/conf/spark-default.conf.template /home/hduser/spark/conf/spark-default.conf
 hduser@master$ echo "spark.master   spark://master:7077" >> /home/hduser/spark/conf/spark-default.conf
 ```
-2.2 Rename and edit the *workers.templates* file
+2.2 Rename and edit the *workers.template* file
 ```
-hduser@master$ cp /home/hduser/spark/conf/workers.templates /home/hduser/spark/conf/workers
+hduser@master$ cp /home/hduser/spark/conf/workers.template /home/hduser/spark/conf/workers
 hduser@master$ echo "master" >> /home/hduser/spark/conf/workers
 hduser@master$ echo  "slave1" >> /home/hduser/spark/conf/workers
 ```
@@ -174,7 +174,7 @@ OR
 #### 1.2 YARN:  
  - Run or submit a mapreduce job
   ```
- hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar wordcount /taltech/REDME.txt /taltech/rst 
+ hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount /taltech/REDME.txt /taltech/rst 
 ``` 
  - Get list of applications on the cluster
   ```
@@ -297,5 +297,5 @@ val graph = Graph(verticesRDD , edgesRDD )
 ```  
 #### 2.2 Submit a job on a cluster Spark
  ```
-hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/spark/examples/jars/spark-examples_2.12-3.2.0.jar 100
+hduser@master$./spark/bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://master:7077 /home/hduser/spark/examples/jars/spark-examples_2.12-3.2.1.jar 100
 ```
