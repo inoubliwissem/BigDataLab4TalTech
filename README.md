@@ -34,13 +34,13 @@ $docker run -it --name master -p 7077:7077 -p 8080:8080 -p 9870:9870 -p 8088:808
 ```
 
  ```
-$docker run -it --name slave1 -p 8081:8081 --hostname slave1 --network cluster node-sh bash 
+$docker run -it --name slave1  --hostname slave1 --network cluster node-sh bash 
 ```
 In order to see the started services in each machine, we recommend opening a terminal for each image
 
 4.  **Start the ssh service (in both machines) and install nano text editor**
  ```
- huser@master$sudo service  ssh start
+ huser@master$ sudo service  ssh start
  huser@master$sudo apt-get install nano
 ```
  5.  **Edit configuration files in both containers (master and slave)** 
