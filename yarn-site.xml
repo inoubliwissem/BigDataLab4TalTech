@@ -22,7 +22,7 @@
     </property>
 <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>localhost</value>
+        <value>master</value>
     </property>
 <property>
  <name>yarn.resourcemanager.webapp.adress</name>
