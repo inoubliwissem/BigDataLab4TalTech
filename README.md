@@ -257,6 +257,27 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
  ```
  scala> df.select("DAY","DAY_OF_WEEK").show()
 ``` 
+
+ - Apply filter on DF
+ ```
+ scala> df.filter($"DAY_OF_WEEK" >2).show()
+``` 
+
+ - Apply filter and projection on DF at the same time
+ ```
+ scala> df.filter($"DAY_OF_WEEK" >2).select("DAY","DAY_OF_WEEK").show()
+``` 
+
+ - Apply an aggregation on DF
+ ```
+ scala> df.groupBy("DAY").count().show()
+``` 
+
+ - Use SQL on DF
+ ```
+ scala> df.createOrReplaceTempView("flights")
+ scala> val sqlDF = spark.sql("SELECT DAY FROM flights")
+``` 
  **Graphs with Spark GraphX** 
 > GraphX is a useful library provided by spark for the graph data structure. In this sub-section we will use this library  to manipulate graphs.  The next figure shows a graph and using GraphX we will create it.
 
