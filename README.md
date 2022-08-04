@@ -243,6 +243,20 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
  ```
  scala> dataframe.show()
 ``` 
+ - Read a csv file into Spark DataFrame
+ ```
+ scala> val df = spark.read.option("header",true).csv("flight.csv")
+``` 
+
+ - Show the df structure or meta-data
+ ```
+ scala> df.printSchema()
+``` 
+
+ - Select only  "DAY and DAY_OF_WEEK" columns from the DF
+ ```
+ scala> df.select("DAY","DAY_OF_WEEK").show()
+``` 
  **Graphs with Spark GraphX** 
 > GraphX is a useful library provided by spark for the graph data structure. In this sub-section we will use this library  to manipulate graphs.  The next figure shows a graph and using GraphX we will create it.
 
