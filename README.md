@@ -174,7 +174,7 @@ OR
 #### 1.2 YARN:  
  - Run or submit a mapreduce job
   ```
- hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount /taltech/REDME.txt /taltech/rst 
+ hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount /taltech/README.txt /taltech/rst 
 ``` 
  - Get list of applications on the cluster
   ```
