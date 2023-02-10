@@ -25,7 +25,7 @@ $docker images
 ```
  2. **Create a virtual network that connects the machines (master and slaves)**
  ```
-$docker --driver bridge cluster
+$docker --driver bridge cluster (docker network create cluster for mac users)
 ```
  3. **Create containers from the created docker image (one for the master and one as a slave machine)**  
 
