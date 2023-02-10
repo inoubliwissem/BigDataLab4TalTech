@@ -36,7 +36,7 @@ COPY yarn-site.xml $HADOOP_HOME/etc/hadoop/
 COPY mapred-site.xml $HADOOP_HOME/etc/hadoop/
 COPY start.sh $HADOOP_HOME/etc/hadoop/
 #Spark configuration
-RUN wget https://dlcdn.apache.org/spark/spark-3.3.0/spark-3.3.1-bin-hadoop3.tgz && tar zxvf spark-3.3.1-bin-hadoop3.tgz && rm spark-3.3.1-bin-hadoop3.tgz
+RUN wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz && tar zxvf spark-3.3.1-bin-hadoop3.tgz && rm spark-3.3.1-bin-hadoop3.tgz
 RUN mv spark-3.3.1-bin-hadoop3 spark
 # set environment variable spark
 ENV SPARK_HOME=/home/hduser/spark
