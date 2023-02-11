@@ -59,7 +59,7 @@ hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
 ```  
  1.3 Copy the hadoop folder from the master to all slaves.  	
  ```
- hduser@master$scp -r haddop hduser@slave1:/home/hduser/
+ hduser@master$scp -r hadoop hduser@slave1:/home/hduser/
 ```      
 1.4 Format the namenode 
    ```
@@ -88,10 +88,10 @@ At the slave machines we will see the next services:
  jps
 ``` 
 **2. Spark**
-2.1 Rename and edit the *spark-default.conf.template* file
+2.1 Rename and edit the *spark-defaults.conf.template* file
 ```
-hduser@master$ cp /home/hduser/spark/conf/spark-default.conf.template /home/hduser/spark/conf/spark-default.conf
-hduser@master$ echo "spark.master   spark://master:7077" >> /home/hduser/spark/conf/spark-default.conf
+hduser@master$ cp /home/hduser/spark/conf/spark-defaults.conf.template /home/hduser/spark/conf/spark-defaults.conf
+hduser@master$ echo "spark.master   spark://master:7077" >> /home/hduser/spark/conf/spark-defaults.conf
 ```
 2.2 Rename and edit the *workers.template* file
 ```
@@ -203,7 +203,7 @@ In this section spark-shell will be used to manipulate the RDDs and DataFrames o
 ``` 
  - Create an RDD from an HDFS file
  ```
- scala>val rdd2=sc.textFile("hdfs://master:8020/taltech/README.txt")
+ scala>val rdd2=sc.textFile("hdfs://master:9000/taltech/README.txt")
 ```
 > Here we should check that the 8020 is opened 
   - Apply an action on an existing RDD
