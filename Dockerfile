@@ -41,6 +41,6 @@ RUN mv spark-3.3.1-bin-hadoop3 spark
 # set environment variable spark
 ENV SPARK_HOME=/home/hduser/spark
 ENV PATH=$PATH:$SPARK_HOME/bin
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-arm64
+#ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-arm64
 #open the used ports
 EXPOSE 50070 50075 50010 50020 50090 8020 9000 9864 9870 10020 19888 8088 8030 8031 8032 8033 8040 8042 22 7077 7070 8080 8081
