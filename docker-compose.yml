@@ -9,6 +9,7 @@ services:
         sudo service ssh restart &&
         start-all.sh &&
         /home/hduser/spark/sbin/start-all.sh &&
+        jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password='' 2>/dev/null &
         bash
       "
     tty: true
@@ -19,6 +20,7 @@ services:
       - 7077:7077
       - 8080:8080
       - 8088:8088
+      - 8888:8888
       - 9870:9870
   worker1:
     image: 'hadoop-spark'
@@ -61,4 +63,5 @@ services:
       - cluster
 networks:
   cluster:
+    name: hadoop-spark-net
     driver: bridge

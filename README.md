@@ -7,6 +7,7 @@ This is an example of how to run a Hadoop-spark cluster on Docker. The following
 
 - Docker engine
 - Docker compose
+- Python and pyspark module
 
 ## How to run
 
@@ -32,30 +33,6 @@ Also it starts the ssh server on each of the nodes, and the hadoop and spark ser
 
 ```shell
 docker exec -it master bash
-```
-
-- To check the started services, run the following command
-
-```shell
-hduser@master$jps
- NodeManager
- DataNode
- resourceManager
- NameNode
- SecondaryNamenode
- jps
- **Master**
- **worker**
-```
-
-- At the worker nodes, we can see the following services
-
-```shell
- hduser@master$jps
- NodeManager
- DataNode
- **worker**
- jps
 ```
 
 ## Web UI
@@ -164,3 +141,17 @@ df.show()
 ```python
 df = spark.read.csv('/home/hduser/flight.csv', header=True)
 ```
+
+## Jupyter notebook and vscode
+
+You can connect the jupyter notebook and vscode to the master node. To do this please follow the following steps:
+
+1. Install the python extension in vscode
+2. Install the jupyter extension in vscode
+3. CTRL+SHIFT+P and select the command "Jupyter: Specify Jupyter server for connections"
+4. Select the "Existing" option
+5. Enter the following url: <http://localhost:8888>
+6. Enter a name for the connection
+7. Open the example notebook in the jupyter notebook change the kernel to the one you created in the previous step and run the cells
+
+Problem with the jupyter notebook? <https://github.com/nteract/hydrogen/issues/922#issuecomment-405456346>: try to open the <http://localhost:8888> in the browser and create a new notebook. Then you can connect to the notebook from vscode.

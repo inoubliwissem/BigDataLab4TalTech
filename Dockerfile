@@ -6,6 +6,7 @@ RUN apt-get update && \
     scala \
     sudo \
     openjdk-8-jdk \
+    pip \
     bpython
 # create a hadoop user set it to sudoer and passwordless
 RUN useradd -m hduser && \
@@ -32,6 +33,7 @@ RUN wget https://dlcdn.apache.org/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz 
     tar -xzf spark-3.3.2-bin-hadoop3.tgz && \
     mv spark-3.3.2-bin-hadoop3 spark && \
     rm spark-3.3.2-bin-hadoop3.tgz
+RUN pip install notebook pyspark
 # set hadoop and spark environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 ENV HADOOP_HOME=/home/hduser/hadoop
@@ -40,7 +42,7 @@ ENV HADOOP_MAPRED_HOME=$HADOOP_HOME
 ENV HADOOP_COMMON_HOME=$HADOOP_HOME
 ENV HADOOP_HDFS_HOME=$HADOOP_HOME
 ENV YARN_HOME=$HADOOP_HOME
-ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin
+ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$SPARK_HOME/bin:/home/hduser/.local/bin
 # create hadoop directories
 RUN mkdir -p /home/hduser/hadoop/hdfs/namenode && \
     mkdir -p /home/hduser/hadoop/hdfs/datanode && \
@@ -66,4 +68,4 @@ RUN cp /home/hduser/spark/conf/workers.template /home/hduser/spark/conf/workers 
     echo "worker2" >> /home/hduser/spark/conf/workers && \
     echo "worker3" >> /home/hduser/spark/conf/workers
 # expose ports
-EXPOSE 50070 50075 50010 50020 50090 8020 9000 9864 9870 10020 19888 8088 8030 8031 8032 8033 8040 8042 22 7077 7070 8080 8081
+EXPOSE 50070 50075 50010 50020 50090 8020 9000 9864 9870 10020 19888 8088 8030 8031 8032 8033 8040 8042 22 7077 7070 8080 8081 8888
