@@ -7,8 +7,7 @@ services:
     command: >
       bash -c "
         sudo service ssh restart &&
-        /home/hduser/hadoop/sbin/start-dfs.sh &&
-        /home/hduser/hadoop/sbin/start-yarn.sh &&
+        start-all.sh &&
         /home/hduser/spark/sbin/start-all.sh &&
         bash
       "
@@ -28,7 +27,6 @@ services:
     command: >
       bash -c "
         sudo service ssh restart &&
-        /home/hduser/spark/sbin/start-all.sh &&
         bash
       "
     tty: true
@@ -42,7 +40,6 @@ services:
     command: >
       bash -c "
         sudo service ssh restart &&
-        /home/hduser/spark/sbin/start-all.sh &&
         bash
       "
     tty: true
@@ -56,7 +53,6 @@ services:
     command: >
       bash -c "
         sudo service ssh restart &&
-        /home/hduser/spark/sbin/start-all.sh &&
         bash
       "
     tty: true
