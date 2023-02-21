@@ -1,0 +1,68 @@
+version: '3'
+services:
+  master:
+    image: 'hadoop-spark'
+    container_name: master
+    hostname: master
+    command: >
+      bash -c "
+        sudo service ssh restart &&
+        /home/hduser/hadoop/sbin/start-dfs.sh &&
+        /home/hduser/hadoop/sbin/start-yarn.sh &&
+        /home/hduser/spark/sbin/start-all.sh &&
+        bash
+      "
+    tty: true
+    stdin_open: true
+    networks:
+      - cluster
+    ports:
+      - 7077:7077
+      - 8080:8080
+      - 8088:8088
+      - 9870:9870
+  worker1:
+    image: 'hadoop-spark'
+    container_name: worker1
+    hostname: worker1
+    command: >
+      bash -c "
+        sudo service ssh restart &&
+        /home/hduser/spark/sbin/start-all.sh &&
+        bash
+      "
+    tty: true
+    stdin_open: true
+    networks:
+      - cluster
+  worker2:
+    image: 'hadoop-spark'
+    container_name: worker2
+    hostname: worker2
+    command: >
+      bash -c "
+        sudo service ssh restart &&
+        /home/hduser/spark/sbin/start-all.sh &&
+        bash
+      "
+    tty: true
+    stdin_open: true
+    networks:
+      - cluster
+  worker3:
+    image: 'hadoop-spark'
+    container_name: worker3
+    hostname: worker3
+    command: >
+      bash -c "
+        sudo service ssh restart &&
+        /home/hduser/spark/sbin/start-all.sh &&
+        bash
+      "
+    tty: true
+    stdin_open: true
+    networks:
+      - cluster
+networks:
+  cluster:
+    driver: bridge
