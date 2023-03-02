@@ -62,10 +62,6 @@ RUN echo "export PYSPARK_DRIVER_PYTHON=bpython" >> /home/hduser/spark/conf/spark
 # edit spark-defaults.conf
 RUN echo "spark.master spark://master:7077" >> /home/hduser/spark/conf/spark-defaults.conf
 # edit spark workers file
-RUN cp /home/hduser/spark/conf/workers.template /home/hduser/spark/conf/workers && \
-    echo "master" > /home/hduser/spark/conf/workers && \
-    echo "worker1" >> /home/hduser/spark/conf/workers && \
-    echo "worker2" >> /home/hduser/spark/conf/workers && \
-    echo "worker3" >> /home/hduser/spark/conf/workers
+COPY config/workers /home/hduser/spark/conf/workers
 # expose ports
 EXPOSE 50070 50075 50010 50020 50090 8020 9000 9864 9870 10020 19888 8088 8030 8031 8032 8033 8040 8042 22 7077 7070 8080 8081 8888
