@@ -1,7 +1,6 @@
 # BigDataLab4TalTech
 # Hands-on on big data frameworks
-
-In this lab, we will  install and configure both apache hadoop and spark on virtual cluster of machines through the container technologie (Docker in our example). Then, we will try to play with the distributed file system provided by apache hadoop (HDFS) and the distributed processing  framework mapreduce implemented by hadoop. In the second lavel, apache spark will be used and tested with some examples. 
+In this lab, we will install and configure both apache hadoop and spark on a virtual cluster of machines through the container technology (Docker in our example). Then, we will try to play with the distributed file system provided by apache hadoop (HDFS) and the distributed processing framework mapreduce implemented by hadoop. In the second level, apache spark will be used and tested with some examples. 
 The following figure shows the architecture that will be deployed in this lab.
 ![alt text](docker.png "architecture")
 
@@ -19,7 +18,7 @@ $git clone https://github.com/inoubliwissem/BigDataLab4TalTech.git
 $cd BigDataLab4TalTech
 $docker build -t node-sh .
 ```  
- if you want to verify the creattion of this image you can check all created images using the next command line:
+ if you want to verify the creation of this image you can check all created images using the next command line:
  ```
 $docker images
 ```
@@ -38,10 +37,10 @@ $docker run -it --name slave1  --hostname slave1 --network cluster node-sh bash
 ```
 In order to see the started services in each machine, we recommend opening a terminal for each image
 
-4.  **Start the ssh service (in both machines) and install nano text editor**
+4.  **Start the ssh service (in both machines) and install the text editor nano**
  ```
  huser@master$ sudo service  ssh start
- huser@master$sudo apt-get install nano
+ huser@master$ sudo apt-get install nano
 ```
  5.  **Edit configuration files in both containers (master and slave)** 
 	
@@ -53,7 +52,7 @@ In order to see the started services in each machine, we recommend opening a ter
 hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
 ```  
     
-   1.2 Edit the *workers* file in order to add the slave machines (in our case we will take both of machines as slaves, in the *workers* file we will add two lines (*master, slave1*)
+   1.2 Edit the *workers* file in order to add the slave machines (in our case we will take all machines as slaves, in the *workers* file we will add two lines (*master, slave1*)
 ```
   hduser@master$ nano /home/hduser/hadoop/etc/hadoop/workers
 ```  
@@ -70,7 +69,7 @@ hduser@master$nano /home/hduser/hadoop/etc/hadoop/core-site.xml
  hduser@master$start-all.sh
 ```
 1.6 Check the started services: 
-At the master machine we will see the next services:
+At the master machine we will see the following services:
 ```
  hduser@master$jps
  NodeManager
@@ -80,7 +79,7 @@ At the master machine we will see the next services:
  SecondaryNamenode
  jps
 ``` 
-At the slave machines we will see the next services:
+At the slave machines we will see the following services:
 ```
  hduser@master$jps
  NodeManager
@@ -108,7 +107,7 @@ hduser@master$ echo  "slave1" >> /home/hduser/spark/conf/workers
  hduser@master$./spark/sbin/start-all.sh
 ``` 
 1.6 Check the started services: 
-At the master machine we will see the next services:
+At the master machine we will see the following services:
 ```
  hduser@master$jps
  NodeManager
@@ -120,7 +119,7 @@ At the master machine we will see the next services:
  **Master**
  **worker**
 ``` 
-At the slave machines we will see the next services:
+At the slave machines we will see the following services:
 ```
  hduser@master$jps
  NodeManager
@@ -129,7 +128,7 @@ At the slave machines we will see the next services:
  jps
 ``` 
 6. Web interfaces
-When all services (hadoop and spark) are started, we can check check their provided graphic web interface. 
+When all services (hadoop and spark) are started, we can check  their provided graphic web interface. 
 **Hadoop HDFS GUI**
 
 ![alt text](hgui.png "hadoop gui")
