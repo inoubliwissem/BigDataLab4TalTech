@@ -3,10 +3,6 @@
 <configuration>
 <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://master:9000</value>
-    </property>
-    <property>
-        <name>hadoop.tmp.dir</name>
-        <value>/home/hduser/hadoop/hdfs/</value>
+        <value>hdfs://localhost:9000</value>
     </property>
 </configuration>
