@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     apt-get install -y vim \
     wget \
@@ -57,9 +58,9 @@ COPY config/mapred-site.xml /home/hduser/hadoop/etc/hadoop/mapred-site.xml
 COPY config/yarn-site.xml /home/hduser/hadoop/etc/hadoop/yarn-site.xml
 # format namenode
 RUN hdfs namenode -format
-# add bpython to pyspark
-RUN echo "export PYSPARK_DRIVER_PYTHON=bpython" >> /home/hduser/spark/conf/spark-env.sh
+# copy the spark env file
+COPY config/spark-env.sh /home/hduser/spark/conf/spark-env.sh
 # edit spark-defaults.conf
-RUN echo "spark.master spark://master:7077" >> /home/hduser/spark/conf/spark-defaults.conf
+RUN echo "spark.master spark://localhost:7077" >> /home/hduser/spark/conf/spark-defaults.conf
 # expose ports
-EXPOSE 4040 8080 8888 980
+EXPOSE 4040 8080 8888 9870 7077 

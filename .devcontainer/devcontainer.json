@@ -14,7 +14,8 @@
         4040,
         8080,
         8888,
-        980
+        9870,
+        7077,
     ],
     "postStartCommand": "sudo service ssh restart && start-all.sh && /home/hduser/spark/sbin/start-all.sh"
 }
