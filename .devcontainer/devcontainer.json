@@ -1,21 +1,25 @@
 {
     "name": "My Dev Container",
     "image": "local_spark:latest",
-    "extensions": [
-        "donjayamanne.python-extension-pack",
-        "EliverLara.andromeda",
-        "GitHub.copilot",
-        "mechatroner.rainbow-csv"
-    ],
-    "settings": {
-        "python.pythonPath": "/usr/bin/python3"
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "donjayamanne.python-extension-pack",
+                "EliverLara.andromeda",
+                "GitHub.copilot",
+                "mechatroner.rainbow-csv"
+            ],
+            "settings": {
+                "python.pythonPath": "/usr/bin/python3"
+            }
+        }
     },
     "forwardPorts": [
         4040,
         8080,
         8888,
         9870,
-        7077,
+        7077
     ],
     "postStartCommand": "sudo service ssh restart && start-all.sh && /home/hduser/spark/sbin/start-all.sh"
 }
