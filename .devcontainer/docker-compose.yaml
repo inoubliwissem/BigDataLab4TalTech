@@ -4,6 +4,7 @@ services:
   spark:
     image: local_spark:latest
     container_name: spark
+    hostname: spark
     ports:
       - 4040:4040
       - 8080:8080
@@ -13,10 +14,14 @@ services:
     volumes:
       - ..:/workspace:cached
     command: /bin/sh -c "while sleep 1000; do :; done"
+    networks:
+      - db_network
+    mem_limit: 4g
 
   cassandra:
     image: cassandra:3.11
     container_name: cassandra
+    hostname: cassandra
     restart: always
     ports:
       - 9042:9042
@@ -24,6 +29,7 @@ services:
       - CASSANDRA_CLUSTER_NAME=Test
     networks:
       - db_network
+    mem_limit: 1g
 
 networks:
   db_network:

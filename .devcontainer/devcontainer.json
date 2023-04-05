@@ -16,5 +16,6 @@
             }
         }
     },
-    "postStartCommand": "sudo service ssh restart && start-all.sh && /home/hduser/spark/sbin/start-all.sh"
+    "postStartCommand": "sudo service ssh restart && start-all.sh && /home/hduser/spark/sbin/start-all.sh",
+    "shutdownAction": "stopCompose"
 }
