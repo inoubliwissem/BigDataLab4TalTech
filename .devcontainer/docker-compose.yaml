@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  spark:
+    image: local_spark:latest
+    container_name: spark
+    ports:
+      - 4040:4040
+      - 8080:8080
+      - 8888:8888
+      - 9870:9870
+      - 7077:7077
+    volumes:
+      - ..:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  cassandra:
+    image: cassandra:3.11
+    container_name: cassandra
+    restart: always
+    ports:
+      - 9042:9042
+    environment:
+      - CASSANDRA_CLUSTER_NAME=Test
+    networks:
+      - db_network
+
+networks:
+  db_network:
+    name: db_network
+    driver: bridge

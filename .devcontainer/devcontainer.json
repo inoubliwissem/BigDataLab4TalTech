@@ -1,6 +1,8 @@
 {
     "name": "My Dev Container",
-    "image": "local_spark:latest",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "workspaceFolder": "/workspace",
+    "service": "spark",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -14,12 +16,5 @@
             }
         }
     },
-    "forwardPorts": [
-        4040,
-        8080,
-        8888,
-        9870,
-        7077
-    ],
     "postStartCommand": "sudo service ssh restart && start-all.sh && /home/hduser/spark/sbin/start-all.sh"
 }
