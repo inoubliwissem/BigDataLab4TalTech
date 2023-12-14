@@ -1,7 +1,8 @@
 # BigDataLab4TalTech
 # Hands-on on big data frameworks
-In this lab, we will install and configure both apache hadoop and spark on a virtual cluster of machines through the container technology (Docker in our example). Then, we will try to play with the distributed file system provided by apache hadoop (HDFS) and the distributed processing framework mapreduce implemented by hadoop. In the second level, apache spark will be used and tested with some examples. 
-The following figure shows the architecture that will be deployed in this lab.
+In this lab session, we'll be setting up and configuring both Apache Hadoop and Spark on a virtual cluster of machines using container technology (specifically Docker in our case). Our aim is to delve into the distributed file system provided by Apache Hadoop (HDFS) and explore the distributed processing framework of MapReduce implemented by Hadoop. Moving forward, we'll dive into Apache Spark, experimenting with several examples.
+The diagram below showcases the architecture that will be deployed for this lab.
+
 ![alt text](docker.png "architecture")
 
 ### Requirements
