@@ -276,7 +276,11 @@ public class WordReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         context.write(key, result);
     }
 }
-
+- Compile the JAR file.
+ - Run or submit a mapreduce job
+  ```
+ hduser@master$mvn package 
+``` 
 ```
  - Run or submit a mapreduce job
   ```
