@@ -172,6 +172,46 @@ OR
 ``` 
 > If you what to use or see other HDFS commands, use this command (***hdfs dfs*** ) to show all available commands.
 #### 1.2 YARN:  
+## Build a job Mapreduce using maven:
+- Create a maven project
+```
+ hduser@master$ mvn archetype:generate -DgroupId=com.hadoop.app -DartifactId=hadoop -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+- Incorporate these dependencies within the pom.xml file.
+```
+<dependencies>
+     <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>3.3.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-mapreduce-client-core</artifactId>
+      <version>3.3.6</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+```
  - Run or submit a mapreduce job
   ```
  hduser@master$yarn jar /home/hduser/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar wordcount /taltech/README.txt /taltech/rst 
